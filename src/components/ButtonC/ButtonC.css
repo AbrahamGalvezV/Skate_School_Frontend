@@ -1,0 +1,25 @@
+.regularButtonClass {
+    width: 15em;
+    background-color: #fcb100;
+    color: rgb(31, 31, 31);
+    border-radius: 30px;
+    transition: 0.3s;
+    margin: 2em auto;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-color: transparent;
+}
+
+.regularButtonClass:hover {
+    cursor: pointer;
+    background-color: transparent;
+    transition: 0.3s;
+    box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.7),
+    1px 2px 4px 0px #fcb100,
+    2px 4px 8px 0px #fcb100,
+    2px 4px 16px 0px #fcb100;
+    width: 15em;
+    color: #fcb100;
+    border-color: transparent;
+    
+}
