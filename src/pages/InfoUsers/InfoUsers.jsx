@@ -27,16 +27,16 @@ export const InfoUsers = () => {
 
   return (
     <>
-      <div className="info section">
+      <div className="info section ">
         <div className="container">
-        <h1 className="title info__title">User Info</h1>
+        <h1 className="title info__title fontColor">User Info</h1>
         <div className="info__btns">
         <ButtonC
           title={"Clients"}
           className={
             buttonClientsClicked
-              ? "regularButtonClass info__btn"
-              : "info__btn regularButtonClass disabledButtom"
+              ? "regularButtonClass  info__btn"
+              : " regularButtonClass info__btn disabledButtom"
           }
           functionEmit={handleClientsButtonClick}
         />
@@ -44,8 +44,8 @@ export const InfoUsers = () => {
           title={"Artists"}
           className={
             buttonArtistsClicked
-              ? "regularButtonClass info__btn"
-              : "info__btn regularButtonClass disabledButtom"
+              ? "regularButtonClass info__btn "
+              : " regularButtonClass disabledButtom info__btn"
           }
           functionEmit={handleArtistsButtonClick}
         />

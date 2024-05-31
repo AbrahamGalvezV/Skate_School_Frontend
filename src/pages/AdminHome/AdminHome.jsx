@@ -66,17 +66,17 @@ export const AdminHome = () => {
     <>
       <div className="home section">
         <div className="container">
-          {msg === "" ? <></> : <h2 className="home__name title">{msg}</h2>}
+          {msg === "" ? <></> : <h2 className="home__name title fontColor">{msg}</h2>}
           {/* <div className="home__text text">{myPassport.vecesLogeado} veces logeado</div> */}
           <ButtonC
             title={"My profile"}
-            className={"regularButtonClass"}
+            className={"regularButtonClass "}
             functionEmit={bringProfileHandler}
           />
 
           <ButtonC
             title={"Users list"}
-            className={"regularButtonClass"}
+            className={"regularButtonClass "}
             functionEmit={bringUsersInfo}
           />
 

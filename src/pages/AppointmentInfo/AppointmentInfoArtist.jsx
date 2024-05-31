@@ -8,7 +8,7 @@ export const AppointmentInfoArtist = () => {
     <>
       <div className="appointments section">
         <div className="container">
-          <h1 className="title">My appointments</h1>
+          <h1 className="title fontColor">My appointments</h1>
           <div>{<CustomTableAppointmentsArtist />}</div>
         </div>
       </div>

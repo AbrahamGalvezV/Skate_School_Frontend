@@ -23,7 +23,7 @@ export const AppointmentInfoClient = () => {
     <>
       <div className="appointments section">
         <div className="container">
-          <h1 className="title">My appointments</h1>
+          <h1 className="title fontColor">My appointments</h1>
             <ButtonC
               title={"Add appointment"}
               className={"regularButtonClass"}

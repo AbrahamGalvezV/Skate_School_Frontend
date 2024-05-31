@@ -86,7 +86,7 @@ export const AppointmentRegistre = () => {
         {msg === "" ? <></> : <div className="title">{msg}</div>}
         {/* <pre>{JSON.stringify(credentials, null, 2)}</pre> */}
         <>
-        <p className="app-register__text">Example: 2024-05-29 18:00:00</p>
+        <p className="app-register__text fontColorText">Example: 2024-05-29 18:00:00</p>
           <CustomInput
             typeProp={"text"}
             nameProp={"appointmentDate"}

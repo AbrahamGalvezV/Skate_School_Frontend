@@ -108,9 +108,10 @@ export function CustomTableAppointments() {
         clientId: appointment.clientId,
         serviceId: appointment.serviceId,
         artistId: appointment.artistId,
+        status: appointment.status,
       };
       dispatch(appointmentInfoData(appointmentPassport)); // Actualiza el estado del slice de Redux con la información de la cita seleccionada
-      navigate("/appointment");
+      navigate("/appointment-admin");
     } catch (error) {
       console.log(error);
     }
@@ -135,6 +136,7 @@ export function CustomTableAppointments() {
               <th>Clients Id</th>
               <th>Artist Id</th>
               <th>Service Id</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -150,8 +152,9 @@ export function CustomTableAppointments() {
                       )}
                     </td>
                     <td>C{appointment.clientId}</td>
-                    <td>A{appointment.artistId}</td>
+                    <td>A{appointment.teacherId}</td>
                     <td>S{appointment.serviceId}</td>
+                    <td>{appointment.status}</td>
 
                     <td>
                       <div>
@@ -232,6 +235,7 @@ export function CustomTableAppointments() {
                       <td>C{appointment.clientId}</td>
                       <td>A{appointment.artistId}</td>
                       <td>S{appointment.serviceId}</td>
+                      <td>{appointment.status}</td>
                       <td>
                         <div>
                           <>

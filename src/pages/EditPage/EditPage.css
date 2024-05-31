@@ -2,6 +2,7 @@
     position: relative;
     overflow: hidden;
     display: inline-block;
+    
   }
   
   .custom-file-input input[type="file"] {
@@ -14,24 +15,63 @@
     cursor: pointer;
   }
   
-  .custom-file-input label {
-    background-color: #fcb100;
-    color: rgb(31, 31, 31);
-    border-radius: 30px;
-    transition: 0.3s;
-    padding: 15px 50px;
-    font-weight: 500;
-    border-color: transparent;
+
+  
+
+
+  .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
   }
   
-  .custom-file-input:hover  label {
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     cursor: pointer;
-    background-color: transparent;
-    transition: 0.3s;
-    box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.7),
-    1px 2px 4px 0px #fcb100,
-    2px 4px 8px 0px #fcb100,
-    2px 4px 16px 0px #fcb100;
-    color: #fcb100;
-    border-color: transparent;
+    border: 2px solid transparent;
+    transition: border 0.3s;
   }
+  
+  .thumbnail:hover {
+    border: 2px solid #ffffff;
+  }
+  
+  .thumbnail.selected {
+    border: 2px solid #ffffff;
+  }
+  
+  /* .saveButton {
+    display: block;
+
+  } */
+
+
+  /* EditPage.css */
+.color-radio {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.color-preview {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.color-radio input[type="radio"]:checked + .color-preview {
+  border: 2px solid rgb(255, 255, 255); /* O el color que prefieras para indicar selección */
+}
+
+.editText {
+  margin-bottom: 40px;
+}
+
+.editButton {
+  margin-bottom: 80px;
+}

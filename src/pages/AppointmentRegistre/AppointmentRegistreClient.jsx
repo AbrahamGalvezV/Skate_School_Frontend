@@ -109,7 +109,7 @@ export const AppointmentRegistreClient = () => {
         {msg === "" ? <></> : <div className="title">{msg}</div>}
         {/* <pre>{JSON.stringify(credentials, null, 2)}</pre> */}
         <>
-          <p className="app-register__text">Example: 2024-05-29 18:00:00</p>
+          <p className="app-register__text fontColorText">Example: 2024-05-29 18:00:00</p>
           <CustomInput
             typeProp={"text"}
             nameProp={"appointmentDate"}
@@ -119,7 +119,7 @@ export const AppointmentRegistreClient = () => {
             onBlurHandler={(e) => inputValidatorHandler(e)}
             errorText={isValidContent.appointmentDate}
           />
-          <p className="app-register__text">Client id</p>
+          <p className="app-register__text fontColorText">Client id</p>
           <CustomInput
             isValidContent={isValidContent.clientId}
             typeProp={"text"}
@@ -130,7 +130,7 @@ export const AppointmentRegistreClient = () => {
             onBlurHandler={(e) => inputValidatorHandler(e)}
             errorText={isValidContent.clientId}
           />
-          <label htmlFor="serviceId">Selec service</label>
+          <label htmlFor="serviceId fontColorText">Select service</label>
           <div className="form-group">
             <select
               name="serviceId"
@@ -138,7 +138,7 @@ export const AppointmentRegistreClient = () => {
               onChange={inputHandler}
               onBlur={inputValidatorHandler}
             >
-              <option value=""></option>
+              <option value="" disabled> <p className="fontColorText">Select service</p> </option>
               {services.map((service) => (
                 <option key={service.id} value={service.id}>
                   <p>{service.serviceName} - {service.description}</p>
@@ -149,7 +149,7 @@ export const AppointmentRegistreClient = () => {
               <div className="error">{isValidContent.serviceId}</div>
             )}
           </div>
-          <p className="app-register__text">Teacher</p>
+          <p className="app-register__text fontColorText">Teacher</p>
           <CustomInput
             isValidContent={isValidContent.artistId}
             typeProp={"text"}

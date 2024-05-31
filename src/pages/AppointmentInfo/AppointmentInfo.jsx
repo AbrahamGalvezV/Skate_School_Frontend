@@ -15,11 +15,26 @@ export function AppointmentInfo() {
       console.log(error);
     }
   };
+
+  const adminAppointment = async () => {
+    try {
+      setTimeout(() => {
+        navigate("/admin-appointment");
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className="appointments section">
         <div className="container">
-          <h1 className="title">Appointments</h1>
+          <h1 className="title fontColor">Appointments</h1>
+          <ButtonC
+            title={"Admin appointments"}
+            className={"regularButtonClass"}
+            functionEmit={adminAppointment}
+          />
           <ButtonC
             title={"Add appointment"}
             className={"regularButtonClass"}

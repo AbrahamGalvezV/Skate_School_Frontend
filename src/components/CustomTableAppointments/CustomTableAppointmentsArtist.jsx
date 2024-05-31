@@ -106,6 +106,7 @@ export function CustomTableAppointmentsArtist() {
         clientId: appointment.client.id,
         serviceId: appointment.service.id,
         artistId: appointment.artist.id,
+        status: appointment.status,
       };
       dispatch(appointmentInfoData(appointmentPassport)); // Actualiza el estado del slice de Redux con la información de la cita seleccionada
       navigate("/appointment");
@@ -134,6 +135,7 @@ export function CustomTableAppointmentsArtist() {
               <th>Clients Id</th>
               <th>Artist Id</th>
               <th>Service Id</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -151,6 +153,7 @@ export function CustomTableAppointmentsArtist() {
                     <td>C{appointment.client.id}</td>
                     <td>A{appointment.artist.id}</td>
                     <td>S{appointment.service.id}</td>
+                    <td>{appointment.status}</td>
 
 
                     <td>
@@ -234,6 +237,7 @@ export function CustomTableAppointmentsArtist() {
                       <td>C{appointment.client.id}</td>
                       <td>A{appointment.artist.id}</td>
                       <td>S{appointment.service.id}</td>
+                      <td>{appointment.status}</td>
                       <td>
                         <div>
                           <>

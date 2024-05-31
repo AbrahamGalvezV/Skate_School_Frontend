@@ -20,7 +20,7 @@ export const Footer = () => {
   };
 
   const artist = {
-    email: "artist1@artist.com",
+    email: "artist4@artist.com",
     password: "12345678",
   };
 
@@ -66,26 +66,27 @@ export const Footer = () => {
 
   return (
     <>
-      <Navbar data-bs-theme="dark" className="header footer ">
+      <Navbar data-bs-theme="dark" className="header footer backgroundColor ">
         <Container>
           <Nav>
             <Nav.Link
               onClick={() => loginMe(admin)}
-              className={location.pathname === "/home" ? "logo-name" : ""}
+              className={location.pathname === "/home" ? "fontColorActive" : ""}
             >
-              ADMIN
+            <div className="fontColor">ADMIN</div>  
             </Nav.Link>
             <Nav.Link
               onClick={() => loginMe(artist)}
-              className={location.pathname === "/services" ? "logo-name" : ""}
+              className={location.pathname === "/services" ? "fontColorActive" : ""}
             >
-              ARTIST
+              <div className="fontColor"> TEACHER</div>              
             </Nav.Link>
             <Nav.Link
               onClick={() => loginMe(client)}
-              className={location.pathname === "/register" ? "logo-name" : ""}
+              className={location.pathname === "/register" ? "fontColorActive" : ""}
             >
-              USER
+              <div className="fontColor">USER</div>
+              
             </Nav.Link>
           </Nav>
         </Container>

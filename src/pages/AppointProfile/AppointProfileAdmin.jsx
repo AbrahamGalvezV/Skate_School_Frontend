@@ -6,10 +6,10 @@ import { useSelector } from "react-redux";
 import { getUserData } from "../../app/slices/userSlice";
 import { getAppointmentData } from "../../app/slices/appointmentSlice";
 import dayjs from "dayjs";
-import BootstrapModalAppointment from "../../components/BootstrapModal/BootstrapModalAppointment";
+import BootstrapModalAppointmentAdmin from "../../components/BootstrapModal/BootstrapModalAppointmentAdmin";
 //----------------------------------------------------------------
 
-export const AppointProfile = () => {
+export const AppointProfileAdmin = () => {
   const [appointmentData, setAppointmentData] = useState({
     status: '',
     appointmentDate: "",
@@ -58,9 +58,9 @@ export const AppointProfile = () => {
 
   return (
     <>
-      <div className="app_profile section ">
+      <div className="app_profile section">
         <div className="container">
-          <h2 className="title">Appointment</h2>
+          <h2 className="title fontColor">Appointment</h2>
         </div>
         <CustomInput
           typeProp="text"
@@ -70,7 +70,7 @@ export const AppointProfile = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-        <p className="text fontColorText">Date Info</p>
+        <p className="text fontColor">Date Info</p>
         <CustomInput
           typeProp="text"
           nameProp="appointmentDate"
@@ -81,7 +81,7 @@ export const AppointProfile = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-        <p className="text fontColorText">Artist Info</p>
+        <p className="text fontColor">Artist Info</p>
         <CustomInput
           typeProp="text"
           nameProp="artistId"
@@ -116,7 +116,7 @@ export const AppointProfile = () => {
           handlerProp={inputHandler}
         />
 
-        <p className="text fontColorText">Client Info</p>
+        <p className="text fontColor">Client Info</p>
         <CustomInput
           typeProp="text"
           nameProp="clientId"
@@ -150,7 +150,7 @@ export const AppointProfile = () => {
           handlerProp={inputHandler}
         />
 
-        <p className="text fontColorText">Service Info</p>
+        <p className="text fontColor">Service Info</p>
         <CustomInput
           typeProp="text"
           nameProp="serviceId"
@@ -183,7 +183,7 @@ export const AppointProfile = () => {
         {/* Si el usuario no es cliente, aparece el boton */}
         {userRole !== "client" && (
           <>
-            <BootstrapModalAppointment
+            <BootstrapModalAppointmentAdmin
               appointmentData={myAppointment}
               token={token}
             />

@@ -174,7 +174,7 @@ export function CustomTableUsers() {
                                   onClick={() =>
                                     handleDeleteButtonClick(user.id)
                                   }
-                                  className="buttonClass"
+                                  className="buttonClass "
                                 >
                                   Delete user
                                 </Button>

@@ -110,6 +110,18 @@ export const bringAllAppointments = async (token, current_page, per_page) => {
   return res;
 };
 
+// Muestra la cita pendiente de confirmación
+export const bringAllAppointmentsPending = async (token, current_page, per_page) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const res = await axios.get(`${API_URL}/appointments/pending?page=${current_page}&limit=${per_page}`, config);
+  return res;
+};
+
 // Borrar cita por id
 export const deleteAppointmentById = async (id, token) => {
   const config = {
@@ -186,6 +198,38 @@ export const bringAllServices = async (token, current_page, per_page) => {
   return res;
 };
 
+// Ruta para obtener la configuración actual del fondo
+export const getModificationsById = async (id) => {
+
+  const res = axios.get(`${API_URL}/modifications/${id}`);
+  return res
+};
+
+// Actualiza la configuración del fondo
+export const updateModificationsById = async (id, data,  token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const res = await axios.put(`${API_URL}/modifications/update/${id}`,data, config);
+  return res;
+};
+
+
+
+// // Ver lista de todos los backgrounds
+// export const updateBackground = async (token) => {
+//   const config = {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   };
+
+//   const res = await axios.put(`${API_URL}/users/updateBackground`, config);
+//   return res;
+// };
 
 // .get("url", {headers})
 // .post("url", {body}, {headers})

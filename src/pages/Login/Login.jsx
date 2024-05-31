@@ -114,7 +114,7 @@ export const Login = () => {
             typeProp={"email"}
             nameProp={"email"}
             handlerProp={(e) => inputHandler(e)}
-            placeholderProp={"escribe tu e-mail"}
+            placeholderProp={"Your e-mail"}
             onBlurHandler={(e) => inputValidatorHandler(e)}
             errorText={isValidContent.email}
           />
@@ -123,14 +123,14 @@ export const Login = () => {
             typeProp={"password"}
             nameProp={"password"}
             handlerProp={(e) => inputHandler(e)}
-            placeholderProp={"Escribe el password"}
+            placeholderProp={"Your password"}
             onBlurHandler={(e) => inputValidatorHandler(e)}
             errorText={isValidContent.password}
           />
 
           <ButtonC
             title={"Login!"}
-            className={"regularButtonClass"}
+            className={"regularButtonClass "}
             functionEmit={loginMe}
           />
           <h3>{loginError}</h3>

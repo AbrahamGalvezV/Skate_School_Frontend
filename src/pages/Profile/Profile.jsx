@@ -66,7 +66,7 @@ export const Profile = () => {
     <>
       <div className="profile section">
         <div className="container">
-          <h2 className="title">Mi profile</h2>
+          <h2 className="title fontColor">Mi profile</h2>
           <CustomInput
             typeProp="text"
             nameProp="firstName"

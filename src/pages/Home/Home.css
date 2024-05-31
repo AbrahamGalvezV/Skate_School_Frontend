@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 h1, .img {
@@ -11,10 +10,8 @@ h1, .img {
 
 .main-text {
     margin: 0 0 50px;
-    width: 500px;
-    
+    width: 500px;   
 }
-
 
 .main-img {
     display: flex;
@@ -23,7 +20,31 @@ h1, .img {
     gap: 40px;
 }
 
+.services .container {
+  text-align: center;
+}
 
+.services__text {
+  margin: 20px auto 50px;
+  width: 500px;
+}
+
+.services-text-names {
+  margin-bottom: 27px;
+}
+
+.services-desc {
+  font-family: "Rye", serif;
+  text-align: center;
+  width: 500px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 50px;
+}
+
+.artist-name {
+  margin-top: 10px;
+}
 
 
 

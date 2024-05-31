@@ -49,45 +49,42 @@ function Header() {
 
   return (
     <>
-      <Navbar data-bs-theme="dark" className="header">
+      <Navbar data-bs-theme="dark" className="header backgroundColor">
         <Container>
-          <Navbar.Brand href="home" className="logo-name">
-            PURO SKATE
+          <Navbar.Brand href="home" className="fontColor">
+            <div className="fontColor" >PURO SKATE</div>
           </Navbar.Brand>
           <Nav>
             <Nav.Link
               href="/home"
-              className={location.pathname === "/home" ? "logo-name" : ""}
+              className={location.pathname === "/home" ? "fontColorActive" : ""}
             >
-              HOME
-            </Nav.Link>
-            <Nav.Link
-              href="/services"
-              className={location.pathname === "/services" ? "logo-name" : ""}
-            >
-              SERVICES
+              <div className="fontColor">HOME</div>
             </Nav.Link>
             {!token && ( // Renderizar si el usuario no está autenticado
               <>
                 <Nav.Link
                   href="/register"
                   className={
-                    location.pathname === "/register" ? "logo-name" : ""
+                    location.pathname === "/register" ? "fontColorActive" : ""
                   }
                 >
-                  REGISTER
+                  <div className="fontColor" >REGISTER</div>
                 </Nav.Link>
                 <Nav.Link
                   href="/login"
-                  className={location.pathname === "/login" ? "logo-name" : ""}
+                  className={location.pathname === "/login" ? "fontColorActive" : ""}
                 >
-                  LOGIN
+                  <div className="fontColor">LOGIN</div>
                 </Nav.Link>
               </>
             )}
             {token && ( // Renderizar si el usuario está autenticado
               <>
-                <Nav.Link className={location.pathname === "/admin" || location.pathname === "/client" || location.pathname === "/artist" ?  "logo-name" : ""}  onClick={() => navigateToAccount()}>MY ACCOUNT</Nav.Link>
+              <div lassName="fontColor">
+                <Nav.Link className={location.pathname === "/admin" || location.pathname === "/client" || location.pathname === "/artist" ?  "fontColorActive" : ""}  onClick={() => navigateToAccount()}><div className="fontColor">MY ACCOUNT</div></Nav.Link>
+
+              </div>
                 <Nav.Link onClick={() => logMeOut()}>LOGOUT</Nav.Link>
               </>
             )}

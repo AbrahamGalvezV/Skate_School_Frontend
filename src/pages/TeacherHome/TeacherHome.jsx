@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { bringProfile } from "../../services/apiCalls";
-import "./ArtistHome.css";
+import "./TeacherHome.css";
 import { getUserData } from "../../app/slices/userSlice";
 import { useSelector } from "react-redux";
 import { ButtonC } from "../../components/ButtonC/ButtonC";
 
-export const ArtistHome = () => {
+export const TeacherHome = () => {
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
 
@@ -49,16 +49,16 @@ export const ArtistHome = () => {
     <>
       <div className="home section">
         <div className="container">
-          {msg === "" ? <></> : <h2 className="home__name title">{msg}</h2>}
+          {msg === "" ? <></> : <h2 className="home__name title fontColor">{msg}</h2>}
           {/* <div className="home__text text">{myPassport.vecesLogeado} veces logeado</div> */}
           <ButtonC
             title={"My profile"}
-            className={"regularButtonClass"}
+            className={"regularButtonClass "}
             functionEmit={bringProfileHandler}
           />
           <ButtonC
             title={"Appointments"}
-            className={"regularButtonClass"}
+            className={"regularButtonClass "}
             functionEmit={bringAppointmebtsInfo}
           />
         </div>

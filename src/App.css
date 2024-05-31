@@ -3,5 +3,33 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-image: url(./assets/img/);
 }
 
+/* change colors */
+
+/* header footer */
+
+.backgroundColor {
+  background-color: var(--background-color);
+}
+
+/* Letras  */
+
+
+.fontColor {
+  color: var(--font-color);
+  
+}
+
+.fontColorText {
+  color: var(--font-color-text);
+}
+
+.fontColorbutton {
+  background-color: var(--font-color-btn);
+}
+ /* Se usa para seleccionar un color qde forma especifica que despues se pueda incluir en las EditPage */
+.colorrrr{
+  color: rgb(0, 231, 219);
+}

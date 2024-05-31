@@ -82,7 +82,7 @@ function BootstrapModal({ profileData, inputHandler, token }) {
 
   return (
     <>
-      <Button className="regularButtonClass" onClick={() => setShow(true)}>
+      <Button className="regularButtonClass " onClick={() => setShow(true)}>
         Edit profile
       </Button>
 

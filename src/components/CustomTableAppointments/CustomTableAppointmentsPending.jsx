@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import {
   deleteAppointmentById,
-  getAppointmentsByLogedClients,
+  bringAllAppointmentsPending,
 } from "../../services/apiCalls";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -12,12 +12,14 @@ import { CustomInput } from "../CustomInput/CustomInput";
 import { ButtonC } from "../ButtonC/ButtonC";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { appointmentInfoData } from "../../app/slices/appointmentSlice";
-import { getUserData } from "../../app/slices/userSlice";
+import {
+  appointmentInfoData,
+} from "../../app/slices/appointmentSlice";
+import { getUserData } from "../../app/slices/userSlice"; 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------
 
-export function CustomTableAppointmentsClient() {
+export function CustomTableAppointmentsPending() {
   const [totalPages, setTotalPages] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [appointments, setAppointments] = useState([]);
@@ -28,22 +30,18 @@ export function CustomTableAppointmentsClient() {
 
   const dispatch = useDispatch();
 
-  // Extrae la información del usuario del almacén
   const myPassport = useSelector(getUserData);
   const token = myPassport.token;
 
-  // Trae todas las citas del cliente
+
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        let perPage = 10;
-        const res = await getAppointmentsByLogedClients(
-          token,
-          currentPage,
-          perPage
-        );
+        let perPage = 5;
+        const res = await bringAllAppointmentsPending(token,currentPage, perPage);
+        
         console.log(res);
-        setAppointments(res.data.appointments__client);
+        setAppointments(res.data.dates);
         setTotalPages(res.data.total_pages);
       } catch (error) {
         console.log(error);
@@ -58,7 +56,7 @@ export function CustomTableAppointmentsClient() {
     setFilter(e.target.value);
   };
 
-  // useEffect que hará el filtrado de clientes
+  // useEffect que hará el filtrado de usuarios
   useEffect(() => {
     // debouncing (esperar a dejar de teclear para lanzar la petición)
     const lowercaseFilter = filter.toLowerCase();
@@ -82,7 +80,6 @@ export function CustomTableAppointmentsClient() {
     }
   }, [filter]);
 
-  // Borrar cita
   const deleteAppointment = async (id) => {
     await deleteAppointmentById(id, token);
     // Después de eliminar el usuario, actualizamos la lista de usuarios y cerramos el modal
@@ -109,13 +106,13 @@ export function CustomTableAppointmentsClient() {
       const appointmentPassport = {
         id: appointment.id,
         appointmentDate: appointment.appointmentDate,
-        clientId: appointment.client.id,
-        serviceId: appointment.service.id,
-        artistId: appointment.artist.id,
-        status: appointment.status
+        clientId: appointment.clientId,
+        serviceId: appointment.serviceId,
+        artistId: appointment.artistId,
+        status: appointment.status,
       };
       dispatch(appointmentInfoData(appointmentPassport)); // Actualiza el estado del slice de Redux con la información de la cita seleccionada
-      navigate("/appointment");
+      navigate("/appointment-admin");
     } catch (error) {
       console.log(error);
     }
@@ -125,14 +122,13 @@ export function CustomTableAppointmentsClient() {
     <>
       <p className="table__text">Search appointment by id</p>
       <CustomInput
-        className="table__filter" // Input del buscador
+        className="table__filter" // input del buscador
         typeProp="text"
         nameProp="filter"
         handlerProp={filterHandler}
         placeholderProp={"Search...  "}
       />
       <div className="table__wrapper">
-        {" "}
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
@@ -148,88 +144,87 @@ export function CustomTableAppointmentsClient() {
           <tbody>
             {filteredAppointments.length > 0
               ? filteredAppointments.map((appointment) => {
-                  return (
-                    <tr key={appointment.id}>
-                      <td>{appointment.id}</td>
-                      <td>
-                        {dayjs(appointment.appointmentDate).format(
-                          "dddd DD-MMMM-YYYY hh:mm A"
-                        )}
-                      </td>
-                      <td>C{appointment.client.id}</td>
-                      <td>A{appointment.artist.id}</td>
-                      <td>S{appointment.service.id}</td>
-                      <td>{appointment.status}</td>
+                return (
+                  <tr key={appointment.id}>
+                    <td>{appointment.id}</td>
+                    <td>
+                      {dayjs(appointment.appointmentDate).format(
+                        "dddd DD-MMMM-YYYY hh:mm A"
+                      )}
+                    </td>
+                    <td>C{appointment.clientId}</td>
+                    <td>A{appointment.artistId}</td>
+                    <td>S{appointment.serviceId}</td>
+                    <td>{appointment.status}</td>
 
-                      <td>
-                        <div>
-                          <>
-                            <div>
-                              <ButtonC
-                                title={"Info"}
-                                className={"buttonClass fontColorbutton"}
-                                functionEmit={() =>
-                                  appointmentsInfo(appointment)
+                    <td>
+                      <div>
+                        <>
+                          <div>
+                            <ButtonC
+                              title={"Info"}
+                              className={"buttonClass"}
+                              functionEmit={() =>
+                                appointmentsInfo(appointment)
+                              }
+                            />
+                            <>
+                              <Button
+                                variant="primary"
+                                onClick={() =>
+                                  handleDeleteButtonClick(appointment.id)
                                 }
-                              />
-                              <>
-                                <Button
-                                  variant="primary"
-                                  onClick={() =>
-                                    handleDeleteButtonClick(appointment.id)
-                                  }
-                                  className="buttonClass fontColorbutton"
-                                >
-                                  Delete
-                                </Button>
+                                className="buttonClass"
+                              >
+                                Delete
+                              </Button>
 
-                                <Modal
-                                  show={
-                                    showDeleteModal[appointment.id] || false
-                                  }
-                                  onHide={() => handleCloseBtn(appointment.id)}
-                                >
-                                  <Modal.Header closeButton>
-                                    <Modal.Title>
-                                      Delete Appointment
-                                    </Modal.Title>
-                                  </Modal.Header>
-                                  <Modal.Body>
-                                    Are you sure you want to delete this
-                                    Appointment
-                                  </Modal.Body>
-                                  <Modal.Footer>
-                                    <Button
-                                      variant="secondary"
-                                      onClick={() =>
-                                        handleCloseBtn(appointment.id)
-                                      }
-                                    >
-                                      Close
-                                    </Button>
-                                    <Button
-                                      className="fontColorbutton"
-                                      variant="primary"
-                                      onClick={() => {
-                                        deleteAppointment(appointment.id);
-                                        handleCloseBtn(appointment.id);
-                                        window.location.reload(); // Cerrar el modal después de eliminar el usuario
-                                      }}
-                                    >
-                                      Delete appointment
-                                    </Button>
-                                  </Modal.Footer>
-                                </Modal>
-                              </>
-                            </div>
-                          </>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })
+                              <Modal
+                                show={
+                                  showDeleteModal[appointment.id] || false
+                                }
+                                onHide={() => handleCloseBtn(appointment.id)}
+                              >
+                                <Modal.Header closeButton>
+                                  <Modal.Title>
+                                    Delete Appointment
+                                  </Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                  Are you sure you want to delete this
+                                  Appointment
+                                </Modal.Body>
+                                <Modal.Footer>
+                                  <Button
+                                    variant="secondary"
+                                    onClick={() =>
+                                      handleCloseBtn(appointment.id)
+                                    }
+                                  >
+                                    Close
+                                  </Button>
+                                  <Button
+                                    variant="primary"
+                                    onClick={() => {
+                                      deleteAppointment(appointment.id);
+                                      handleCloseBtn(appointment.id);
+                                      window.location.reload(); // Cerrar el modal después de eliminar el usuario
+                                    }}
+                                  >
+                                    Delete appointment
+                                  </Button>
+                                </Modal.Footer>
+                              </Modal>
+                            </>
+
+                          </div>
+                        </>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })
               : appointments.map((appointment) => {
-                  console.log(appointment, " soy app");
                   return (
                     <tr key={appointment.id}>
                       <td>{appointment.id}</td>
@@ -238,9 +233,9 @@ export function CustomTableAppointmentsClient() {
                           "dddd DD-MMMM-YYYY hh:mm A"
                         )}
                       </td>
-                      <td>C{appointment.client.id}</td>
-                      <td>A{appointment.artist.id}</td>
-                      <td>S{appointment.service.id}</td>
+                      <td>C{appointment.clientId}</td>
+                      <td>A{appointment.artistId}</td>
+                      <td>S{appointment.serviceId}</td>
                       <td>{appointment.status}</td>
                       <td>
                         <div>
@@ -301,6 +296,7 @@ export function CustomTableAppointmentsClient() {
                                   </Modal.Footer>
                                 </Modal>
                               </>
+
                             </div>
                           </>
                         </div>
@@ -343,4 +339,4 @@ export function CustomTableAppointmentsClient() {
   );
 }
 
-export default CustomTableAppointmentsClient;
+export default CustomTableAppointmentsPending;

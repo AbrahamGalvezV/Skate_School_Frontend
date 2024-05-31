@@ -1,24 +1,25 @@
-export const setBackgroundImage = (imageUrl) => ({
-  type: "SET_BACKGROUND_IMAGE",
-  payload: imageUrl,
-});
+import { createSlice } from "@reduxjs/toolkit";
+
+//----------------------------------------------------------------
 
 const initialState = {
   backgroundImage: "",
 };
 
-const backgroundSlice = (state = initialState, action) => {
-  // Reducer que se encarga de generar el cambio de background
-    switch (action.type) {
-    case "SET_BACKGROUND_IMAGE":
-      return {
-        ...state,
-        backgroundImage: action.payload,
-      };
-      // Vuelve al estado inicial
-    default:
-      return state;
-  }
-};
+export const backgroundSlice = createSlice({
+  name: "background",
+  initialState,
+  reducers: {
+    setBackgroundImage: (state, action) => {
+      state.backgroundImage = action.payload;
+    },
+  },
+});
 
-export default backgroundSlice;
+// Exportamos las acciones a las que accederemos a través del useDispatch para escribir en el almacén
+export const { setBackgroundImage } = backgroundSlice.actions;
+
+// Definimos y exportamos los métodos que nos permitirán venir al almacén a leer información
+export const getBackgroundImage = (state) => state.background.backgroundImage;
+
+export default backgroundSlice.reducer;

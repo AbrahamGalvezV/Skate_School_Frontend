@@ -9,7 +9,7 @@ import backgroundSlice from "./slices/backgroundSlice";
 
 //----------------------------------------------------------------
 
-// Defino los pasillos que tendrá mi almacén (importante crear los archivos correspondientes)
+// Defino los pasillos que tendrá mi almacén
 const reducers = combineReducers({
   user: userSlice,
   appointment: appointmentSlice,

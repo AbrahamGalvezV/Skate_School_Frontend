@@ -1,16 +1,16 @@
 .app-register__text {
     margin: 0;
-    color: #ffc400;
+    color: var(--font-color);
 }
 
 label {
     color: #ffc400;
 }
 select {
-    background-color: rgba(0, 0, 0, 0.788);
+    background-color: rgba(0, 0, 0, 0.291);
 }
 
-.form-group {
+.app-register.form-group {
     color:#ffc400;
     margin: 1em auto;
     border-radius: 5em;

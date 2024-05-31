@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6, p {
 	font-weight: inherit;
 }
 
+h3 {
+	color: rgb(220, 151, 0);
+}
+
 ul, ul li {
 	list-style: none;
 }
