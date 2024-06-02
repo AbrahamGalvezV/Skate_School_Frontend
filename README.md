@@ -45,11 +45,6 @@ He creado un footer que te permitirá loguearte con el rol que quieras simplemen
     <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   </a>
 </div>
-  
-## Deploy 🚀
-<div align="center">
-    <a href="https://abrahamgalvezv.github.io/TATTOO_STUDIO_FRONT/"><strong>Pincha aquí </strong></a>🚀🚀🚀
-</div>
 
 ## Instalación en local
 1. Clonar el repositorio
