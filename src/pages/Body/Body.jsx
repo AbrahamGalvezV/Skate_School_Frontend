@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import "./Body.css";
 import { Login } from "../Login/Login";
 import { Home } from "../Home/Home";
 import { Fred } from "../Artist/Fred";
@@ -21,6 +20,9 @@ import { AppointmentRegistreClient } from "../AppointmentRegistre/AppointmentReg
 import { EditPage } from "../EditPage/EditPage";
 import { AdminAppointments } from "../AdminAppointments/AdminAppointments";
 import { AppointProfileAdmin } from "../AppointProfile/AppointProfileAdmin";
+import "./Body.css";
+
+//----------------------------------------------------------------
 
 export const Body = () => {
   return (
@@ -31,7 +33,7 @@ export const Body = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/fred" element={<Fred />} />
-
+        
         {/* Admin routes */}
         <Route path="/admin" element={<AdminRoute component={AdminHome} />} />
         <Route

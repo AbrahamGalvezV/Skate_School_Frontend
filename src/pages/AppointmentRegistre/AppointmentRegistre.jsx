@@ -2,15 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { ButtonC } from "../../components/ButtonC/ButtonC";
-import { decodeToken } from "react-jwt";
-import {
-  registerNewAppointment,
-  registerNewUserCall,
-} from "../../services/apiCalls";
-import "./AppointmentRegistre.css";
+import {registerNewAppointment,registerNewUserCall,}
+from "../../services/apiCalls";
 import { inputValidator } from "../../utils/validators";
 import { getUserData, login } from "../../app/slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import "./AppointmentRegistre.css";
 
 //------------------------------------------------------------------------------
 

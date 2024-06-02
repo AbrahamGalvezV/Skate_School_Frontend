@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./EditPage.css";
-import { setBackgroundImage } from "../../app/slices/backgroundSlice";
 import { useEffect, useState } from "react";
 import { getUserData } from "../../app/slices/userSlice";
 import { updateModificationsById } from "../../services/apiCalls";
-import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { ButtonC } from "../../components/ButtonC/ButtonC";
+import "./EditPage.css";
 
 //----------------------------------------------------------------
 
@@ -13,7 +11,6 @@ export const EditPage = () => {
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedBackgroundColor, setBackgroundColor] = useState("");
   const [selectedFontColor, setFontColor] = useState("");
-  const [selectedFontColorText, setFontColorText] = useState("");
   const [selectedFontColorButton, setFontColorButton] = useState("");
 
   // Se pueden eliminar o incluir imágenes aquí
@@ -27,7 +24,6 @@ export const EditPage = () => {
   ];
 
     // Se pueden eliminar o incluir colores aquí
-
   const colorOptions = [
     "rgb(0, 0, 0)",
     "rgb(149, 0, 255)",
@@ -42,14 +38,6 @@ export const EditPage = () => {
     "rgb(100, 100, 100)",
     "rgb(149, 0, 255)",
   ];
-
-  const textColorOptions = [
-    "rgb(0, 0, 0)",
-    "rgb(255, 185, 7)",
-    "rgb(100, 100, 100)",
-    "rgb(149, 0, 255)",
-  ];
-
 
   const myPassport = useSelector(getUserData);
   const token = myPassport.token;
@@ -99,21 +87,6 @@ export const EditPage = () => {
     await updateModificationsById(id, modifications, token);
     window.location.reload();
   };
-
-  const handleSaveFontColorText = async () => {
-    if (!setFontColorText) {
-      console.error("No color selected");
-      return;
-    }
-    const modifications = {
-
-      setFontColorText: selectedFontColorText,
-    };
-    await updateModificationsById(id, modifications, token);
-    window.location.reload();
-  };
-
-  console.log(selectedBackgroundColor);
 
   return (
     <>
@@ -168,7 +141,6 @@ export const EditPage = () => {
                   ></span>
                 </label>
               ))}
-
               <>
                 <ButtonC
                   title={"Save Color"}
@@ -194,7 +166,6 @@ export const EditPage = () => {
                   ></span>
                 </label>
               ))}
-
               <>
                 <ButtonC
                   title={"Save Background Color"}
@@ -203,31 +174,7 @@ export const EditPage = () => {
                 />
               </>
             </div>
-            <div className="color-selectors">
-              <p className="text editText fontColor">Select Text Color</p>
-              {textColorOptions.map((color, index) => (
-                <label key={index} className="color-radio">
-                  <input
-                    type="radio"
-                    name="fontColorText"
-                    value={color}
-                    onChange={handleColorSelect(setFontColorText)}
-                    style={{ display: "none" }}
-                  />
-                  <span
-                    className="color-preview"
-                    style={{ backgroundColor: color }}
-                  ></span>
-                </label>
-              ))}
-
-              <>
-                <ButtonC
-                  title={"Save Text Color"}
-                  className={"regularButtonClass  editButton"}
-                  functionEmit={handleSaveFontColorText}
-                />
-              </>
+              <div className="color-selectors">
             </div>
           </div>
         </div>

@@ -20,7 +20,7 @@ export const Footer = () => {
   };
 
   const artist = {
-    email: "artist4@artist.com",
+    email: "artist2@artist.com",
     password: "12345678",
   };
 

@@ -1,10 +1,9 @@
-# Welcome Tattoo Studio Front 
+# Skate School Front 
 
 <details>
   <summary>Contenido 📝</summary>
   <ol>
     <li><a href="#objetivo-🎯">Objetivo</a></li>
-    <li><a href="#sobre-el-proyecto-🔎">Sobre el proyecto</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#instalación-en-local">Instalación</a></li>
@@ -17,13 +16,10 @@
 
 ## Objetivo 🎯
 
-Vincular una API a la parte frontal de una web usando los conocimientos adquiridos en clase. (lo demas si esoooo... a tomar porculo) para dotar a la pagina de una base de datos que permita al usuario registrase y establecer una cita  
+Creación de un front adaptado a una API REST que además de las funciones típicasde un back como hacer login, también permite al administrador la modificación de la imagen de fondo y de los colores de distintos elementos dentro de la página. 
+He creado un footer que te permitirá loguearte con el rol que quieras simplemente haciendo click sobre el nombre.
 
 
-
-## Sobre el proyecto 🔎   
-
-Esta aplicación está creada para agilizar el registro y gestión de citas de los usuarios de un estudio de tatuajes. Para ello he vinculado el proyecto con una base de datos que creé anterior mente y que podrá usar aquí https://github.com/AbrahamGalvezV/Tattoo_Studio_Backend . Para realizar esta parte frontal he usado las siguientes tecnologías.
 
 ## Stack 🛠️
 <div align="center">
@@ -66,82 +62,68 @@ https://github.com/AbrahamGalvezV/Skate_School_Backend
 
 #### Home
 
-En esta vista encontramos los componentes header, body y footer establecidos en app.jsx y que nos acompañarán en todas las vistas de la página
+En esta vista encontramos los componentes header, body y footer establecidos en app.jsx y que nos acompañarán en todas las vistas de la página. También encontramos los servicios de los que dispone la escuela.
 
-![image](./src/assets/img/.png)
+![image](./src/assets/img/home.png)
 
 ###### Header
 
-Aquí encontramos el enlace a las distintas vistas de la página. NEON TATTOO también actúa como un botón que te conduce a la vista home
+Aquí encontramos los enlaces a las distintas vistas de la página. PURO SKATE también actúa como un botón que te conduce a la vista home.
 
-![image](./src/assets/img/.png)
-
-Al loguearte, login cambia por my account y login por logout
-
-![image](./src/assets/img/.png)
-
-###### Body
-
-En body encontramos un texto de bienvenida y otro descriptivo del estudio, justo debajo encontramos unas imágenes que cambian al situar el pulso encima creando un efecto neón alrededor y actúan como enlace a la página personal de dos de los artistas
-
-![image](./src/assets/img/.png)
+![image](./src/assets/img/header.png)
 
 ###### Footer
 
 Aquí encontramos los tres roles con los que podemos acceder a la página, al presionar en uno de ellos nos llevará a la vista my account del rol seleccionado desde donde podremos comprobar los accesos y funciones que tiene cada role dentro de la página sin necesidad de logear.
 
-![image](./src/assets/img/.png)
-
-#### Services
-
-Aquí encontramos una descripción de las distintas disciplinas que se llevan a cabo en NEON TATTOO junto a una imágenes-enlaces de los profesionales que las imparten
-
-![image](./src/assets/img/.png)
+![image](./src/assets/img/footer.png)
 
 #### Register
 
-Desde aquí podrá registrarse un nuevo usuario
-
-![image](./src/assets/img/.png)
+![image](./src/assets/img/register.png)
 
 #### Login
 
-![image](./src/assets/img/.png)
+![image](./src/assets/img/login.png)
 
 #### My Account
 
-En esta vista encontramos los botones que te mostrarán la información a la que tienes acceso según el rol de la cuenta con la que accedas. El texto mostrará tu nombre de usuario
+En esta vista encontramos los botones que te mostrarán la información a la que tienes acceso según el rol de la cuenta con la que accedas. El texto mostrará tu nombre de usuario.
 
-![image](./src/assets/img/.png)
+![image](./src/assets/img/myAccount.png)
 
 #### Edit profile
 
-Desde aquí podremos modificar la toda la información de nuestro perfil. Al pulsar en "Edit profile" se desplegará un modal en el que podremos realizar los cambios
+Desde aquí podremos modificar la información de nuestro perfil. Al pulsar en "Edit profile" se desplegará un modal en el que podremos realizar los cambios
 
-![image](./src/assets/img/.png)
+![Descripción del GIF](./src/assets/img/editProfile.gif)
 
 #### Users info
 
 A esta vista solo puede acceder el administrador, desde aquí podrá buscar y eliminar usuarios
 
-![image](./src/assets/img/.png)
+![image](./src/assets/img/infoUsers.png)
 
 #### Citas
 
-La información de esta vista cambiará dependiendo del rol con el que accedas. El administrador podrá ver todas las citas y crear nuevas mientras que artist y user solo podrán ver y borrar sus citas
+La información de esta vista cambiará dependiendo del rol con el que accedas.Desde aquí el administrador puede  ver las citas validadas o sin validar, acceder a su información, borrarlas o validarlas. También puede generar una cita.
+El usuario puede ver sus citas, eliminarlas o crear otras nuevas.
 
-![image](./src/assets/img/.png)
+![Descripción del GIF](./src/assets/img/validator.gif)
 
-#### Pagina de los artistas del estudio
+#### Edit
 
-Cada artista tendrán su página donde se expondrán sus trabajos y habilidades
+La información de esta vista cambiará dependiendo del rol con el que accedas.Desde aquí el administrador puede  ver las citas validadas o sin validar, acceder a su información, borrarlas o validarlas. También puede generar una cita.
+El usuario puede ver sus citas, eliminarlas o crear otras nuevas.
 
-![image](./src/assets/img/.png)
+![Descripción del GIF](./src/assets/img/edit.gif)
 
 ## Futuras funcionalidades
-⬜ Crear un sistema en el que el artista confirme la cita establecida por el cliente.
+⬜ Modificación de fuentes para las letras.
  
-⬜  Otorgar al administrador la posibilidad de cambiar los colores de letras y botones.
+⬜ El administrador podrá modificar el texto del header.
+
+⬜ Adaptar la web a dispositivos móviles.
 
 ## Agradecimientos:
 

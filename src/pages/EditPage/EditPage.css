@@ -1,8 +1,7 @@
 .custom-file-input {
     position: relative;
     overflow: hidden;
-    display: inline-block;
-    
+    display: inline-block; 
   }
   
   .custom-file-input input[type="file"] {
@@ -14,12 +13,9 @@
     height: 100%;
     cursor: pointer;
   }
-  
-
-  
-
 
   .image-grid {
+    width: 400px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -42,12 +38,6 @@
   .thumbnail.selected {
     border: 2px solid #ffffff;
   }
-  
-  /* .saveButton {
-    display: block;
-
-  } */
-
 
   /* EditPage.css */
 .color-radio {

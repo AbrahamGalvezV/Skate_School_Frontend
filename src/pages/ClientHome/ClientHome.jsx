@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { bringProfile } from "../../services/apiCalls";
-import "./ClientHome.css";
 import { getUserData } from "../../app/slices/userSlice";
 import { useSelector } from "react-redux";
 import { ButtonC } from "../../components/ButtonC/ButtonC";
+import "./ClientHome.css";
+
+//----------------------------------------------------------------
 
 export const ClientHome = () => {
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
-
   const myPassport = useSelector(getUserData);
   const token = myPassport.token
 

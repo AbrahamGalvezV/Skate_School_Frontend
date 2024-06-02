@@ -31,7 +31,6 @@ export const Register = () => {
 
   const inputHandler = (e) => {
     // console.log(e.target.name) genero la funcion que bindea
-
     setCredentials((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -104,7 +103,6 @@ export const Register = () => {
             onBlurHandler={(e) => inputValidatorHandler(e)}
             errorText={isValidContent.password}
           />
-
           <ButtonC
             title={"Register!"}
             className={"regularButtonClass "}

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import "./AppointProfile.css";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { getAppointmentById } from "../../services/apiCalls";
 import { useSelector } from "react-redux";
 import { getUserData } from "../../app/slices/userSlice";
 import { getAppointmentData } from "../../app/slices/appointmentSlice";
-import dayjs from "dayjs";
 import BootstrapModalAppointmentAdmin from "../../components/BootstrapModal/BootstrapModalAppointmentAdmin";
+import "./AppointProfile.css";
+import dayjs from "dayjs";
+
 //----------------------------------------------------------------
 
 export const AppointProfileAdmin = () => {
@@ -32,6 +33,7 @@ export const AppointProfileAdmin = () => {
   // Extrae la información de la cita
   const myAppointment = useSelector(getAppointmentData);
   console.log(myAppointment, "cita");
+
   // Aquí se guarda id de la cita
   const appointmentId = myAppointment.id;
 
@@ -106,7 +108,6 @@ export const AppointProfileAdmin = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-
         <CustomInput
           typeProp="text"
           nameProp="artistEmail"
@@ -115,7 +116,6 @@ export const AppointProfileAdmin = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-
         <p className="text fontColor">Client Info</p>
         <CustomInput
           typeProp="text"
@@ -149,7 +149,6 @@ export const AppointProfileAdmin = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-
         <p className="text fontColor">Service Info</p>
         <CustomInput
           typeProp="text"
@@ -169,7 +168,6 @@ export const AppointProfileAdmin = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-
         <CustomInput
           typeProp="text"
           nameProp="description"

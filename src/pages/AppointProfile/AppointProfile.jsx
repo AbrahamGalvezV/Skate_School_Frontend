@@ -7,6 +7,7 @@ import { getUserData } from "../../app/slices/userSlice";
 import { getAppointmentData } from "../../app/slices/appointmentSlice";
 import dayjs from "dayjs";
 import BootstrapModalAppointment from "../../components/BootstrapModal/BootstrapModalAppointment";
+
 //----------------------------------------------------------------
 
 export const AppointProfile = () => {
@@ -32,6 +33,7 @@ export const AppointProfile = () => {
   // Extrae la información de la cita
   const myAppointment = useSelector(getAppointmentData);
   console.log(myAppointment, "cita");
+
   // Aquí se guarda id de la cita
   const appointmentId = myAppointment.id;
 
@@ -60,7 +62,7 @@ export const AppointProfile = () => {
     <>
       <div className="app_profile section ">
         <div className="container">
-          <h2 className="title">Appointment</h2>
+          <h2 className="title fontColor">Appointment</h2>
         </div>
         <CustomInput
           typeProp="text"
@@ -106,7 +108,6 @@ export const AppointProfile = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-
         <CustomInput
           typeProp="text"
           nameProp="artistEmail"
@@ -115,7 +116,6 @@ export const AppointProfile = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-
         <p className="text fontColorText">Client Info</p>
         <CustomInput
           typeProp="text"
@@ -149,7 +149,6 @@ export const AppointProfile = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-
         <p className="text fontColorText">Service Info</p>
         <CustomInput
           typeProp="text"
@@ -169,7 +168,6 @@ export const AppointProfile = () => {
           isDisabled={!isEditing}
           handlerProp={inputHandler}
         />
-
         <CustomInput
           typeProp="text"
           nameProp="description"

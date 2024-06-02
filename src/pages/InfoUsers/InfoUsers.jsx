@@ -41,7 +41,7 @@ export const InfoUsers = () => {
           functionEmit={handleClientsButtonClick}
         />
         <ButtonC
-          title={"Artists"}
+          title={"Teachers"}
           className={
             buttonArtistsClicked
               ? "regularButtonClass info__btn "

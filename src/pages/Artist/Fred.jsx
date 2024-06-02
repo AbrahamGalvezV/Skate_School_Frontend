@@ -1,5 +1,3 @@
-import img from "../../assets/img/bowl.jpg";
-
 export const Fred = () => {
   return (
     <>

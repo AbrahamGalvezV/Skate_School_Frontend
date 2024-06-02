@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { bringProfile } from "../../services/apiCalls";
 import "./TeacherHome.css";
 import { getUserData } from "../../app/slices/userSlice";
@@ -19,9 +18,6 @@ export const TeacherHome = () => {
       .userName;
     setMsg(`¡Hola, ${userName}!`);
   }, []);
-
-
-
 
   const bringProfileHandler = async () => {
     try {

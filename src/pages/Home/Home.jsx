@@ -1,10 +1,12 @@
-import "./Home.css";
 import teacher_1 from "../../assets/img/teacher.jpg";
 import skate from "../../assets/img/skateAbance.jpg";
 import SurfGroupMin from "../../assets/img/SurfGroupMin.jpg";
 import surfAbance from "../../assets/img/surfAbance.jpg";
 import surfSkate from "../../assets/img/surfSkate.jpg";
 import surfAbancePro from "../../assets/img/surfSkatePro .jpg";
+import "./Home.css";
+
+//----------------------------------------------------------------
 
 export const Home = () => {
   return (
@@ -16,7 +18,6 @@ export const Home = () => {
             Discover the sports you can learn in a pure club safely and with the
             best teachers
           </p>
-
           <h2 className="title fontColor">SERVICES</h2>
           <p className="text services-text-names fontColor">SKATE</p>
           <p className="text services__text fontColorText">

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import './Profile.css'
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { bringProfile } from "../../services/apiCalls";
 import { inputValidator } from "../../utils/validators";
 import BootstrapModal from "../../components/BootstrapModal/BootrstrapModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData, logout } from "../../app/slices/userSlice";
+import './Profile.css'
 
 //----------------------------------------------------------------
 
@@ -104,7 +104,6 @@ export const Profile = () => {
             handlerProp={inputHandler}
             isValidContent={isValidContent.role.name}
           />
-
           <>
             <BootstrapModal
               profileData={profileData}
