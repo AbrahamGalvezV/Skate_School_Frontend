@@ -16,7 +16,7 @@
 
 ## Objetivo 🎯
 
-Creación de un front adaptado a una API REST que además de las funciones típicasde un back como hacer login, también permite al administrador la modificación de la imagen de fondo y de los colores de distintos elementos dentro de la página. 
+Creación de un front adaptado a una API REST que además de las funciones típicasde un back como hacer login, también permite a los usuarios modificar la imagen de fondo y de los colores de distintos elementos dentro de la página. Estos cambios solo los podrá ver el usuario que ha realizado las modificaciones.
 He creado un footer que te permitirá loguearte con el rol que quieras simplemente haciendo click sobre el nombre.
 
 
@@ -108,8 +108,7 @@ El usuario puede ver sus citas, eliminarlas o crear otras nuevas.
 
 #### Edit
 
-La información de esta vista cambiará dependiendo del rol con el que accedas.Desde aquí el administrador puede  ver las citas validadas o sin validar, acceder a su información, borrarlas o validarlas. También puede generar una cita.
-El usuario puede ver sus citas, eliminarlas o crear otras nuevas.
+Dede edit page cualquier usuario puede editar background, color de header/footer, color de letras y botones.  Estos cambios solo los podrá ver el usuario que ha realizado las modificaciones.
 
 ![Descripción del GIF](./src/assets/img/edit.gif)
 

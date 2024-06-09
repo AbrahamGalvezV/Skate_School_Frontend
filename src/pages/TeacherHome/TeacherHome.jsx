@@ -41,6 +41,16 @@ export const TeacherHome = () => {
     }
   };
 
+  const Edit = async () => {
+    try {
+      setTimeout(() => {
+        navigate("/edit");
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="home section">
@@ -56,6 +66,11 @@ export const TeacherHome = () => {
             title={"Appointments"}
             className={"regularButtonClass "}
             functionEmit={bringAppointmebtsInfo}
+          />
+          <ButtonC
+            title={"Edit web"}
+            className={"regularButtonClass"}
+            functionEmit={Edit}
           />
         </div>
       </div>

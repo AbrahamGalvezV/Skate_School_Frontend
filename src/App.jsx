@@ -6,29 +6,35 @@ import { Body } from "./pages/Body/Body";
 import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { getUserData } from "./app/slices/userSlice";
-import { getModificationsById } from "./services/apiCalls";
+import { bringProfile } from "./services/apiCalls";
 
 //------------------------------------------------------------------------------
 
 function App() {
-  const id = 1;
   const [modifications, setModifications] = useState({
-    background: "",
-    backgroundColor: "",
-    fontColor: "",
-    fontColorText: "",
-    fontColorButton: "",
+    background: "src/assets/img/air.jpg",
+    backgroundColor: "rgb(0, 0, 0)",
+    fontColor: "rgb(0, 198, 165)",
+    fontColorText: "rgb(246, 223, 207)",
+    fontColorButton: "rgb(0, 198, 165)",
   });
+
+  const myPassport = useSelector(getUserData);
+  const token = myPassport.token;
+
+  console.log(myPassport);
 
   // Obtener modificaciones
   useEffect(() => {
     const fetchModifications = async () => {
-      const myModifications = await getModificationsById(id);
-      setModifications(myModifications.data);
-      console.log(myModifications.data, "modifications by id");
+      if (token) {
+        const myModifications = await bringProfile(token);
+        setModifications(myModifications);
+        console.log(myModifications, "modifications by id");
+      }
     };
     fetchModifications();
-  }, []);
+  }, [token]);
 
   // Fondo por defecto
   useEffect(() => {
@@ -39,27 +45,39 @@ function App() {
 
   useEffect(() => {
     if (modifications.fontColor) {
-      document.documentElement.style.setProperty('--font-color', modifications.fontColor);
+      document.documentElement.style.setProperty(
+        "--font-color",
+        modifications.fontColor
+      );
     }
   }, [modifications.fontColor]);
 
   useEffect(() => {
     if (modifications.fontColorText) {
-      document.documentElement.style.setProperty('--font-color-text', modifications.fontColorText);
+      document.documentElement.style.setProperty(
+        "--font-color-text",
+        modifications.fontColorText
+      );
     }
-  }, [modifications.fontColorText])
+  }, [modifications.fontColorText]);
 
   useEffect(() => {
     if (modifications.backgroundColor) {
-      document.documentElement.style.setProperty('--background-color', modifications.backgroundColor);
+      document.documentElement.style.setProperty(
+        "--background-color",
+        modifications.backgroundColor
+      );
     }
-  }, [modifications.backgroundColor])
+  }, [modifications.backgroundColor]);
 
   useEffect(() => {
     if (modifications.fontColorButton) {
-      document.documentElement.style.setProperty('--font-color-btn', modifications.fontColorButton);
+      document.documentElement.style.setProperty(
+        "--font-color-btn",
+        modifications.fontColorButton
+      );
     }
-  }, [modifications.fontColorButton])
+  }, [modifications.fontColorButton]);
 
   return (
     <>

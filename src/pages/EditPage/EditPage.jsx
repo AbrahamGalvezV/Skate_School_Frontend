@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 import { getUserData } from "../../app/slices/userSlice";
-import { updateModificationsById } from "../../services/apiCalls";
+import { updateProfile } from "../../services/apiCalls";
 import { ButtonC } from "../../components/ButtonC/ButtonC";
 import "./EditPage.css";
 
@@ -23,7 +23,7 @@ export const EditPage = () => {
     { background: "src/assets/img/degradado2.jpg" },
   ];
 
-    // Se pueden eliminar o incluir colores aquí
+  // Se pueden eliminar o incluir colores aquí
   const colorOptions = [
     "rgb(0, 0, 0)",
     "rgb(149, 0, 255)",
@@ -41,7 +41,6 @@ export const EditPage = () => {
 
   const myPassport = useSelector(getUserData);
   const token = myPassport.token;
-  const id = 1;
 
   // Función para manejar la selección de una imagen
   const handleImageSelect = (image) => {
@@ -62,7 +61,7 @@ export const EditPage = () => {
       console.error("No image selected");
       return;
     }
-    await updateModificationsById(id, selectedImage, token);
+    await updateProfile(selectedImage, token);
     window.location.reload();
   };
 
@@ -71,20 +70,19 @@ export const EditPage = () => {
       fontColor: selectedFontColor,
       fontColorButton: selectedFontColorButton,
     };
-    await updateModificationsById(id, modifications, token);
+    await updateProfile(modifications, token);
     window.location.reload();
   };
-  
+
   const handleSaveBackgroundColor = async () => {
     if (!selectedBackgroundColor) {
       console.error("No color selected");
       return;
     }
     const modifications = {
-
       backgroundColor: selectedBackgroundColor,
     };
-    await updateModificationsById(id, modifications, token);
+    await updateProfile(modifications, token);
     window.location.reload();
   };
 
@@ -150,7 +148,9 @@ export const EditPage = () => {
               </>
             </div>
             <div className="color-selectors">
-              <p className="text editText fontColor">Select Header <br /> & Footer Color</p>
+              <p className="text editText fontColor">
+                Select Header <br /> & Footer Color
+              </p>
               {backgroundColorOptions.map((color, index) => (
                 <label key={index} className="color-radio">
                   <input
@@ -174,8 +174,7 @@ export const EditPage = () => {
                 />
               </>
             </div>
-              <div className="color-selectors">
-            </div>
+            <div className="color-selectors"></div>
           </div>
         </div>
       </div>
