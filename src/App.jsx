@@ -2,7 +2,6 @@ import "./App.css";
 import Header from "../src/components/Header/Header";
 import Footer from "../src/components/Footer/Footer";
 import { Body } from "./pages/Body/Body";
-// import BackgroundImageUploader from "./components/Edit/BackgroundImageUploader";
 import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { getUserData } from "./app/slices/userSlice";
@@ -14,9 +13,9 @@ function App() {
   const [modifications, setModifications] = useState({
     background: "src/assets/img/air.jpg",
     backgroundColor: "rgb(0, 0, 0)",
-    fontColor: "rgb(0, 198, 165)",
+    fontColor: "rgb(255, 185, 7)",
     fontColorText: "rgb(246, 223, 207)",
-    fontColorButton: "rgb(0, 198, 165)",
+    fontColorButton: "rgb(255, 185, 7)",
   });
 
   const myPassport = useSelector(getUserData);
